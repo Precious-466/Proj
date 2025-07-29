@@ -1,0 +1,36 @@
+[
+  {
+    "username": "YashRaj",
+    "password": "yashraj123",
+    "fullname": "Yashraj Shrestha",
+    "role": "guide",
+    "registrationDate": "2025-07-29T09:06:28.228726",
+    "active": true
+  },
+  {
+    "username": "admin",
+    "password": "123456",
+    "fullname": "Administrator",
+    "role": "admin",
+    "registrationDate": "2025-07-29T09:06:28.2298106",
+    "lastLoginDate": "2025-07-29T09:16:44.1113851",
+    "active": true
+  },
+  {
+    "username": "Jashhh",
+    "password": "123456",
+    "fullname": "Jashraj shrestha",
+    "role": "tourist",
+    "registrationDate": "2025-07-29T09:06:28.2298106",
+    "active": true
+  },
+  {
+    "username": "12345",
+    "password": "sanjeev",
+    "fullname": "Rishi kumar",
+    "role": "tourist",
+    "registrationDate": "2025-07-29T09:06:28.2341703",
+    "lastLoginDate": "2025-07-29T09:06:39.2530732",
+    "active": true
+  }
+]

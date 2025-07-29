@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+
+<?import java.lang.String?>
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.apassignment1.ManagePackagesController"
+      spacing="10" style="-fx-padding: 20;">
+
+    <Label text="Package Management" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="packagesTable" style="-fx-font-size: 14px;">
+        <columns>
+            <TableColumn text="ID" fx:id="idCol" prefWidth="80"/>
+            <TableColumn text="Name" fx:id="nameCol" prefWidth="150"/>
+            <TableColumn text="Description" fx:id="descriptionCol" prefWidth="250"/>
+            <TableColumn text="Price" fx:id="priceCol" prefWidth="80"/>
+            <TableColumn text="Location" fx:id="locationCol" prefWidth="120"/>
+            <TableColumn text="Start Date" fx:id="startDateCol" prefWidth="100"/>
+            <TableColumn text="End Date" fx:id="endDateCol" prefWidth="100"/>
+            <TableColumn text="Status" fx:id="statusCol" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Add Package" fx:id="addButton" onAction="#handleAddPackage"/>
+        <Button text="Edit Package" fx:id="editButton" onAction="#handleEditPackage"/>
+        <Button text="Delete Package" fx:id="deleteButton" onAction="#handleDeletePackage"/>
+        <Button text="Toggle Status" fx:id="toggleButton" onAction="#handleToggleStatus"/>
+    </HBox>
+
+    <HBox spacing="10" style="-fx-padding: 10 0;">
+        <Label text="Filter:"/>
+        <ComboBox fx:id="filterComboBox">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="All Packages"/>
+                    <String fx:value="Active Only"/>
+                    <String fx:value="Inactive Only"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+        <Button text="Refresh" onAction="#handleRefresh"/>
+    </HBox>
+</VBox>

@@ -1,0 +1,70 @@
+<!-- Embedded CSS Styles -->
+    <stylesheets>
+        <URL value="@style.css" />
+    </stylesheets>
+
+    <!-- Inline CSS as fallback -->
+    <style>
+        .root {
+        -fx-background-color: linear-gradient(to bottom right, #e0eafc, #cfdef3);
+        }
+        .sidebar-button {
+        -fx-background-color: transparent;
+        -fx-border-color: transparent;
+        -fx-text-fill: #2c3e50;
+        -fx-font-size: 14px;
+        -fx-alignment: CENTER_LEFT;
+        -fx-padding: 8 15;
+        -fx-cursor: hand;
+        }
+        .sidebar-button:hover {
+        -fx-background-color: #f0f0f0;
+        -fx-border-radius: 5;
+        }
+        .chart {
+        -fx-padding: 10px;
+        -fx-background-color: transparent;
+        }
+        .chart-title {
+        -fx-text-fill: #2c3e50;
+        -fx-font-size: 14px;
+        -fx-font-weight: bold;
+        }
+        .chart-legend {
+        -fx-background-color: transparent;
+        -fx-padding: 10px;
+        }
+        .chart-legend-item {
+        -fx-text-fill: #34495e;
+        }
+        .chart-pie-label {
+        -fx-font-size: 10px;
+        -fx-fill: #34495e;
+        }
+        .axis {
+        -fx-tick-label-fill: #34495e;
+        -fx-font-size: 11px;
+        }
+        .axis-label {
+        -fx-text-fill: #34495e;
+        }
+        .table-view {
+        -fx-background-color: white;
+        -fx-border-color: #dcdcdc;
+        -fx-border-radius: 5;
+        }
+        .table-row-cell {
+        -fx-cell-size: 35px;
+        }
+        .table-row-cell:odd {
+        -fx-background-color: #f8f9fa;
+        }
+        .table-row-cell:selected {
+        -fx-background-color: #3498db;
+        -fx-text-fill: white;
+        }
+        .table-cell {
+        -fx-alignment: CENTER_LEFT;
+        -fx-padding: 5 10 5 10;
+        }
+    </style>

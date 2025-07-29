@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.apassignment1.AdminHomeController"
+      spacing="20"
+      style="-fx-background-color: #f5f7fa; -fx-padding: 20;">
+
+    <!-- Header -->
+    <Label text="Dashboard Overview"
+           style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;"/>
+
+    <!-- Summary Cards -->
+    <HBox spacing="20">
+        <!-- Total Users Card -->
+        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);"
+              prefWidth="200">
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ImageView fitWidth="30" fitHeight="30">
+                    <Image url="@/images/users-icon.png"/>
+                </ImageView>
+                <Label text="Total Users" style="-fx-font-weight: bold;"/>
+            </HBox>
+            <Label fx:id="totalUsersLabel" style="-fx-font-size: 28px; -fx-text-fill: #3498db;"/>
+            <Label fx:id="userGrowthLabel" style="-fx-text-fill: #2ecc71; -fx-font-size: 12px;"/>
+        </VBox>
+
+        <!-- Active Tours Card -->
+        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);"
+              prefWidth="200">
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ImageView fitWidth="30" fitHeight="30">
+                    <Image url="@/images/tours-icon.png"/>
+                </ImageView>
+                <Label text="Active Tours" style="-fx-font-weight: bold;"/>
+            </HBox>
+            <Label fx:id="activeToursLabel" style="-fx-font-size: 28px; -fx-text-fill: #e74c3c;"/>
+            <Label fx:id="toursTodayLabel" style="-fx-text-fill: #7f8c8d; -fx-font-size: 12px;"/>
+        </VBox>
+
+        <!-- Revenue Card -->
+        <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);"
+              prefWidth="200">
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ImageView fitWidth="30" fitHeight="30">
+                    <Image url="@/images/revenue-icon.png"/>
+                </ImageView>
+                <Label text="Monthly Revenue" style="-fx-font-weight: bold;"/>
+            </HBox>
+            <Label fx:id="revenueLabel" style="-fx-font-size: 28px; -fx-text-fill: #2ecc71;"/>
+            <Label fx:id="revenueGrowthLabel" style="-fx-text-fill: #2ecc71; -fx-font-size: 12px;"/>
+        </VBox>
+    </HBox>
+
+    <!-- Charts Section -->
+    <GridPane hgap="20" vgap="20">
+        <!-- Column 1 -->
+        <BarChart fx:id="userGrowthChart" title="User Growth (Last 6 Months)"
+                  GridPane.rowIndex="0" GridPane.columnIndex="0"
+                  prefWidth="400" prefHeight="300">
+            <xAxis>
+                <CategoryAxis label="Month"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="New Users"/>
+            </yAxis>
+        </BarChart>
+
+        <PieChart fx:id="userDistributionChart" title="User Distribution"
+                  GridPane.rowIndex="1" GridPane.columnIndex="0"
+                  prefWidth="400" prefHeight="300"/>
+
+        <!-- Column 2 -->
+        <LineChart fx:id="revenueTrendChart" title="Revenue Trend (Last 6 Months)"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"
+                   prefWidth="400" prefHeight="300">
+            <xAxis>
+                <CategoryAxis label="Month"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Amount ($)"/>
+            </yAxis>
+        </LineChart>
+
+        <TableView fx:id="recentActivityTable" title="Recent Activities"
+                   GridPane.rowIndex="1" GridPane.columnIndex="1"
+                   prefWidth="400" prefHeight="300">
+            <columns>
+                <TableColumn text="Time" fx:id="timeColumn" prefWidth="100"/>
+                <TableColumn text="Activity" fx:id="activityColumn" prefWidth="150"/>
+                <TableColumn text="User" fx:id="userColumn" prefWidth="150"/>
+            </columns>
+        </TableView>
+    </GridPane>
+</VBox>

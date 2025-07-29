@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      alignment="CENTER" spacing="20" style="-fx-padding: 40;">
+    <Label text="Welcome to the Admin Home" style="-fx-font-size: 28; -fx-font-weight: bold;" />
+</VBox>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.apassignment1.ManageTouristsController"
+      spacing="10"
+      style="-fx-background-color: #f5f5f5;">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Manage Tourists"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;"/>
+
+    <HBox spacing="20">
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-background-radius: 5;">
+            <Label text="Tourist Details" style="-fx-font-weight: bold;"/>
+
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints prefWidth="100"/>
+                    <ColumnConstraints prefWidth="200"/>
+                </columnConstraints>
+
+                <rowConstraints>
+                    <RowConstraints prefHeight="30"/>
+                    <RowConstraints prefHeight="30"/>
+                    <RowConstraints prefHeight="30"/>
+                    <RowConstraints prefHeight="30"/>
+                </rowConstraints>
+
+                <Label text="Username:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="usernameField" promptText="Enter username"
+                           GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Full Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="fullNameField" promptText="Enter full name"
+                           GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Password:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="passwordField" promptText="Enter password"
+                               GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Role:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <ComboBox fx:id="roleComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+            </GridPane>
+
+            <HBox spacing="10" style="-fx-padding: 10 0 0 0;">
+                <Button fx:id="addTouristButton" text="Add Tourist"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white;"
+                        onAction="#handleAddTourist"/>
+                <Button fx:id="updateTouristButton" text="Update Tourist"
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white;"
+                        onAction="#handleUpdateTourist" disable="true"/>
+                <Button fx:id="deleteTouristButton" text="Delete Tourist"
+                        style="-fx-background-color: #f44336; -fx-text-fill: white;"
+                        onAction="#handleDeleteTourist" disable="true"/>
+            </HBox>
+        </VBox>
+
+        <VBox spacing="10" style="-fx-padding: 10; -fx-background-color: white; -fx-background-radius: 5;">
+            <Label text="Search Tourists" style="-fx-font-weight: bold;"/>
+            <HBox spacing="5">
+                <TextField fx:id="searchField" promptText="Search by name" prefWidth="200"/>
+                <Button text="Search" onAction="#handleSearch"
+                        style="-fx-background-color: #607D8B; -fx-text-fill: white;"/>
+            </HBox>
+
+            <TableView fx:id="touristsTable" style="-fx-font-size: 12px;">
+                <columns>
+                    <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150"/>
+                    <TableColumn fx:id="fullnameColumn" text="Full Name" prefWidth="200"/>
+                    <TableColumn fx:id="roleColumn" text="Role" prefWidth="100"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+</VBox>

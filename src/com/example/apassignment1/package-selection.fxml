@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.apassignment1.PackageSelectionController"
+      spacing="15"
+      style="-fx-padding: 20;">
+
+    <Label text="Available Tour Packages"
+           style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="packagesTable" prefHeight="300">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn" prefWidth="150"/>
+            <TableColumn text="Description" fx:id="descriptionColumn" prefWidth="250"/>
+            <TableColumn text="Price" fx:id="priceColumn" prefWidth="80"/>
+            <TableColumn text="Location" fx:id="locationColumn" prefWidth="120"/>
+            <TableColumn text="Start Date" fx:id="startDateColumn" prefWidth="100"/>
+            <TableColumn text="End Date" fx:id="endDateColumn" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Number of People:"/>
+        <Spinner fx:id="peopleSpinner" prefWidth="80"/>
+        <Button text="Book Package" onAction="#handleBookPackage"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+    </HBox>
+
+    <Label text="Your Bookings"
+           style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="bookingsTable" prefHeight="250">
+        <columns>
+            <TableColumn text="Package" fx:id="bookingPackageColumn" prefWidth="150"/>
+            <TableColumn text="Booking Date" fx:id="bookingDateColumn" prefWidth="100"/>
+            <TableColumn text="People" fx:id="peopleColumn" prefWidth="80"/>
+            <TableColumn text="Total Price" fx:id="totalPriceColumn" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <Label fx:id="totalSpendingLabel"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+</VBox>

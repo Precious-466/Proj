@@ -1,0 +1,21 @@
+[
+  {
+    "id": "pkg1",
+    "name": "Everest Base Camp",
+    "description": "15-day trek to Everest",
+    "price": 1500.0,
+    "startDate": "2025-07-26",
+    "endDate": "2025-08-02",
+    "isActive": true
+  },
+  {
+    "id": "PKG-1753531763918",
+    "name": "Annapurna Basecamp",
+    "description": "14 days Trek\t",
+    "price": 1000.0,
+    "startDate": "2025-07-27",
+    "endDate": "2025-08-09",
+    "location": "Kathmandu",
+    "isActive": false
+  }
+]

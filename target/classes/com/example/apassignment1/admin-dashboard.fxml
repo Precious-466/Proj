@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.apassignment1.AdminDashboardController"
+            stylesheets="@style.css">
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-background-color: #ffffff; -fx-padding: 10 20; -fx-border-color: #dcdcdc; -fx-border-width: 0 0 1 0;">
+            <Label text="Language:" style="-fx-text-fill: #34495e; -fx-font-weight: bold;" />
+            <ComboBox fx:id="languageComboBox" prefWidth="140" promptText="Select Language"
+                      style="-fx-background-radius: 8; -fx-background-color: #ecf0f1;" />
+        </HBox>
+    </top>
+
+    <!-- Sidebar Navigation -->
+    <left>
+        <VBox alignment="TOP_CENTER" prefWidth="220" spacing="15"
+              style="-fx-background-color: #ffffff; -fx-padding: 20; -fx-effect: dropshadow(two-pass-box, rgba(0,0,0,0.05), 5, 0.1, 0, 4);">
+            <ImageView fitHeight="60" fitWidth="60" preserveRatio="true">
+                <image>
+                    <Image url="@Logo.jpg" />
+                </image>
+            </ImageView>
+            <Label fx:id="nameLabel" text="Name: Admin"
+                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+            <Label fx:id="rankLabel" text="Rank: Admin"
+                   style="-fx-font-size: 13px; -fx-font-style: italic; -fx-text-fill: #7f8c8d;" />
+            <Separator />
+            <Button fx:id="homeButton" text="🏠 Home" onAction="#handleHome"
+                    styleClass="sidebar-button" />
+            <Button fx:id="generateReportButton" text="📄 Generate Report" onAction="#handleGenerateReport"
+                    styleClass="sidebar-button" />
+            <Button fx:id="manageTouristsButton" text="🧳 Manage Tourists" onAction="#handleManageTourists"
+                    styleClass="sidebar-button" />
+            <Button fx:id="manageGuidesButton" text="🧭 Manage Guides" onAction="#handleManageGuides"
+                    styleClass="sidebar-button" />
+            <Button fx:id="managePackagesButton" text="📦 Manage Packages" onAction="#handleManagePackages"
+                    styleClass="sidebar-button" />
+            <Button fx:id="logoutButton" text="🚪 Logout" onAction="#handleLogout"
+                    styleClass="sidebar-button" />
+        </VBox>
+    </left>
+
+    <!-- Main Content Area -->
+    <center>
+        <VBox fx:id="dashboardContainer" style="-fx-padding: 20;">
+            <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                <StackPane fx:id="mainContentPane">
+                    <VBox alignment="TOP_CENTER" spacing="20" style="-fx-padding: 10;">
+                        <Label fx:id="welcomeLabel" text="Welcome to Admin Dashboard"
+                               style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
+
+                        <!-- Charts Section -->
+                        <VBox spacing="20" style="-fx-padding: 20; -fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0);">
+                            <Label text="Dashboard Overview"
+                                   style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;"/>
+
+                            <!-- First Row of Charts -->
+                            <HBox spacing="20" alignment="CENTER">
+                                <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                                    <Label text="User Status" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                    <PieChart fx:id="userPieChart" prefWidth="350" prefHeight="300"
+                                              legendVisible="true" legendSide="BOTTOM"
+                                              style="-fx-font-size: 12px; -fx-padding: 10;"/>
+                                </VBox>
+                                <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                                    <Label text="Activities" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                    <PieChart fx:id="activityPieChart" prefWidth="350" prefHeight="300"
+                                              legendVisible="true" legendSide="BOTTOM"
+                                              style="-fx-font-size: 12px; -fx-padding: 10;"/>
+                                </VBox>
+                            </HBox>
+
+                            <!-- Second Row of Charts -->
+                            <HBox spacing="20" alignment="CENTER">
+                                <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                                    <Label text="Monthly User Registrations" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                    <BarChart fx:id="registrationBarChart" prefWidth="350" prefHeight="300"
+                                              legendVisible="false"
+                                              style="-fx-font-size: 12px; -fx-padding: 10;">
+                                        <xAxis>
+                                            <CategoryAxis label="Month" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Users" />
+                                        </yAxis>
+                                    </BarChart>
+                                </VBox>
+                                <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                                    <Label text="Activity Trends" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+                                    <LineChart fx:id="activityTrendChart" prefWidth="350" prefHeight="300"
+                                               legendVisible="false"
+                                               style="-fx-font-size: 12px; -fx-padding: 10;">
+                                        <xAxis>
+                                            <CategoryAxis label="Day" />
+                                        </xAxis>
+                                        <yAxis>
+                                            <NumberAxis label="Activities" />
+                                        </yAxis>
+                                    </LineChart>
+                                </VBox>
+                            </HBox>
+
+                            <!-- Recent Activities Section -->
+                            <VBox spacing="10" style="-fx-padding: 15; -fx-background-color: #f8f9fa; -fx-background-radius: 8;">
+                                <Label text="Recent Activities"
+                                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 0 0 10 0;"/>
+                                <TableView fx:id="recentActivitiesTable" prefHeight="200" style="-fx-font-size: 12px;">
+                                    <columns>
+                                        <TableColumn fx:id="userColumn" text="User" prefWidth="100"/>
+                                        <TableColumn fx:id="activityColumn" text="Activity" prefWidth="150"/>
+                                        <TableColumn fx:id="timestampColumn" text="Time" prefWidth="150"/>
+                                    </columns>
+                                </TableView>
+                            </VBox>
+                        </VBox>
+                    </VBox>
+                </StackPane>
+            </ScrollPane>
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <VBox spacing="0">
+            <Separator />
+            <HBox alignment="CENTER" style="-fx-padding: 10;">
+                <Label fx:id="footerLabel" text="© 2025 Tourism Management System"
+                       style="-fx-font-size: 13px; -fx-text-fill: #7f8c8d;" />
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>
