@@ -28,7 +28,6 @@ public class LoginController {
     }
 
     private void initializeLanguageMap() {
-        // English, Nepali pairs
         languageMap.put("welcome", new String[]{"Welcome Back", "स्वागत छ"});
         languageMap.put("username", new String[]{"Username", "प्रयोगकर्ता नाम"});
         languageMap.put("password", new String[]{"Password", "पासवर्ड"});
@@ -87,10 +86,10 @@ public class LoginController {
             return;
         }
 
-        // Map displayed user type back to internal role (case-insensitive)
+        // Map display text back to internal role
         String role = mapDisplayedRoleToInternal(selectedUserType);
 
-        // Check default admin login
+        // Default hardcoded admin login
         if ("admin".equalsIgnoreCase(username) && "123456".equals(password) && "admin".equalsIgnoreCase(role)) {
             User adminUser = new User("admin", "123456", "Administrator", User.ROLE_ADMIN);
             ActivityLog.logActivity("admin", "ADMIN_LOGIN", "Admin logged in");
@@ -105,7 +104,8 @@ public class LoginController {
             return;
         }
 
-        List<User> users = UserStorage.loadUsers();
+        // ✅ Load users for selected role only
+        List<User> users = UserStorage.loadUsers(role);
 
         for (User user : users) {
             if (user.getUsername().equalsIgnoreCase(username)) {
@@ -122,10 +122,10 @@ public class LoginController {
                     }
 
                     ActivityLog.logActivity(username, "LOGIN", "User logged in");
-                    user.login();
-                    UserStorage.saveUsers(users);
-                    HelloApplication.setCurrentUser(user);
+                    user.login(); // updates last login date
+                    UserStorage.saveUsers(users, role); // ✅ save back to correct file
 
+                    HelloApplication.setCurrentUser(user);
                     try {
                         switch (user.getRole().toLowerCase()) {
                             case "admin" -> HelloApplication.setRoot("admin-dashboard.fxml");
@@ -150,16 +150,11 @@ public class LoginController {
 
     private String mapDisplayedRoleToInternal(String displayedRole) {
         if (isNepali) {
-            // Map Nepali display names to English role strings
             if (displayedRole.equals(languageMap.get("admin")[1])) return "admin";
             if (displayedRole.equals(languageMap.get("guide")[1])) return "guide";
             if (displayedRole.equals(languageMap.get("tourist")[1])) return "tourist";
-        } else {
-            // English is the same, just lowercase
-            return displayedRole.toLowerCase();
         }
-        // fallback
-        return displayedRole.toLowerCase();
+        return displayedRole.toLowerCase(); // fallback
     }
 
     private boolean userTypeMatchesRole(User user, String role) {

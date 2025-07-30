@@ -1408,5 +1408,119 @@
     "activityType": "LOGOUT",
     "description": "User logged out",
     "timestamp": "2025-07-30T10:28:40.4554314"
+  },
+  {
+    "username": "Rajiv",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T10:33:12.7618811"
+  },
+  {
+    "username": "Rajiv",
+    "activityType": "REGISTRATION",
+    "description": "User registered with role: tourist",
+    "timestamp": "2025-07-30T10:33:12.8077849"
+  },
+  {
+    "username": "rajiv",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-30T10:33:22.8057047"
+  },
+  {
+    "username": "Rajiv",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-30T10:33:22.8300508"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T10:33:37.691351"
+  },
+  {
+    "username": "admin",
+    "activityType": "ADMIN_LOGIN",
+    "description": "Admin logged in",
+    "timestamp": "2025-07-30T10:33:37.7328054"
+  },
+  {
+    "username": "admin",
+    "activityType": "TOURIST_DELETED",
+    "description": "Tourist: Raj (Username: Rajiv)",
+    "timestamp": "2025-07-30T10:33:47.8599958"
+  },
+  {
+    "username": "admin",
+    "activityType": "TOURIST_DELETED",
+    "description": "Tourist: Raj (Username: Rajiv)",
+    "timestamp": "2025-07-30T10:33:47.8990484"
+  },
+  {
+    "username": "admin",
+    "activityType": "TOURIST_DELETED",
+    "description": "Tourist: Jashraj shrestha (Username: Jashhh)",
+    "timestamp": "2025-07-30T10:33:52.2914158"
+  },
+  {
+    "username": "admin",
+    "activityType": "TOURIST_DELETED",
+    "description": "Tourist: Jashraj shrestha (Username: Jashhh)",
+    "timestamp": "2025-07-30T10:33:52.3110151"
+  },
+  {
+    "username": "admin",
+    "activityType": "FAILED_LOGIN",
+    "description": "User type mismatch",
+    "timestamp": "2025-07-30T10:34:05.1488611"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T10:34:11.3218957"
+  },
+  {
+    "username": "admin",
+    "activityType": "ADMIN_LOGIN",
+    "description": "Admin logged in",
+    "timestamp": "2025-07-30T10:34:11.3578525"
+  },
+  {
+    "username": "Driver22",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T11:19:46.8056823"
+  },
+  {
+    "username": "Driver22",
+    "activityType": "REGISTRATION",
+    "description": "User registered with role: Guide",
+    "timestamp": "2025-07-30T11:19:46.8521994"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T11:19:56.2493566"
+  },
+  {
+    "username": "admin",
+    "activityType": "ADMIN_LOGIN",
+    "description": "Admin logged in",
+    "timestamp": "2025-07-30T11:19:56.2771645"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T11:37:10.4844441"
+  },
+  {
+    "username": "system",
+    "activityType": "INIT",
+    "description": "Default admin account created",
+    "timestamp": "2025-07-30T11:37:10.5436711"
   }
 ]

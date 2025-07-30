@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -25,7 +26,8 @@ public class HelloApplication extends Application {
     }
 
     private void initializeDefaultAdmin() {
-        List<User> users = new ArrayList<>(UserStorage.loadUsers());
+        // Load from admin.json
+        List<User> users = new ArrayList<>(UserStorage.loadUsers("admin"));
         boolean adminExists = false;
 
         for (User u : users) {
@@ -38,7 +40,7 @@ public class HelloApplication extends Application {
         if (!adminExists) {
             User admin = new User("admin", "123456", "Administrator", User.ROLE_ADMIN);
             users.add(admin);
-            UserStorage.saveUsers(users);
+            UserStorage.saveUsers(users, "admin");
             ActivityLog.logActivity("system", "INIT", "Default admin account created");
         }
     }
@@ -48,7 +50,7 @@ public class HelloApplication extends Application {
         Scene scene = new Scene(loader.load(), 900, 650);
         mainStage.setScene(scene);
 
-        // Initialize controller with current user based on role
+        // Pass user to controller if applicable
         Object controller = loader.getController();
         if (controller instanceof RoleBasedController) {
             ((RoleBasedController) controller).initializeWithUser(currentUser);

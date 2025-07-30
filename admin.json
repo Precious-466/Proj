@@ -1,0 +1,10 @@
+[
+  {
+    "username": "admin",
+    "password": "123456",
+    "fullname": "Administrator",
+    "role": "admin",
+    "registrationDate": "2025-07-30T11:37:10.4225551",
+    "active": true
+  }
+]

@@ -43,7 +43,7 @@ public class RegisterController {
             return;
         }
 
-        List<User> users = UserStorage.loadUsers();
+        List<User> users = UserStorage.loadUsers(role); // ✅ role-specific loading
         if (isUsernameTaken(users, username)) {
             showAlert("Error", "Username already exists.");
             return;
@@ -51,7 +51,7 @@ public class RegisterController {
 
         User newUser = new User(username, password, fullname, role);
         users.add(newUser);
-        UserStorage.saveUsers(users);
+        UserStorage.saveUsers(users, role); // ✅ role-specific saving
 
         ActivityLog.logActivity(username, "REGISTRATION", "User registered with role: " + role);
 

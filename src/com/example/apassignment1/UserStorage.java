@@ -11,14 +11,23 @@ import java.util.*;
 import java.util.stream.*;
 
 public class UserStorage {
-    private static final String USERS_FILE = "users.json";
+
     private static final Gson gson = new GsonBuilder()
             .registerTypeAdapter(LocalDateTime.class, new LocalDateTimeAdapter())
             .setPrettyPrinting()
             .create();
 
-    public static List<User> loadUsers() {
-        try (Reader reader = new FileReader(USERS_FILE)) {
+    private static final Map<String, String> ROLE_FILE_MAP = Map.of(
+            "admin", "admin.json",
+            "guide", "guide.json",
+            "tourist", "tourist.json"
+    );
+
+    // ========== ROLE-BASED LOADING/SAVING ==========
+
+    public static List<User> loadUsers(String role) {
+        String fileName = getFileNameByRole(role);
+        try (Reader reader = new FileReader(fileName)) {
             Type listType = new TypeToken<ArrayList<User>>(){}.getType();
             List<User> users = gson.fromJson(reader, listType);
             return users != null ? users : new ArrayList<>();
@@ -27,13 +36,36 @@ public class UserStorage {
         }
     }
 
-    public static void saveUsers(List<User> users) {
-        try (Writer writer = new FileWriter(USERS_FILE)) {
+    public static void saveUsers(List<User> users, String role) {
+        String fileName = getFileNameByRole(role);
+        try (Writer writer = new FileWriter(fileName)) {
             gson.toJson(users, writer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    private static String getFileNameByRole(String role) {
+        return ROLE_FILE_MAP.getOrDefault(role.toLowerCase(), "users.json");
+    }
+
+    // ========== LOAD ALL USERS ACROSS ROLES ==========
+
+    public static List<User> loadUsers() {
+        List<User> allUsers = new ArrayList<>();
+        for (String fileName : ROLE_FILE_MAP.values()) {
+            try (Reader reader = new FileReader(fileName)) {
+                Type listType = new TypeToken<ArrayList<User>>(){}.getType();
+                List<User> users = gson.fromJson(reader, listType);
+                if (users != null) allUsers.addAll(users);
+            } catch (IOException e) {
+                // ignore missing file
+            }
+        }
+        return allUsers;
+    }
+
+    // ========== STATISTICS ==========
 
     public static int getTotalUserCount() {
         return loadUsers().size();
@@ -94,15 +126,15 @@ public class UserStorage {
         List<User> users = loadUsers();
         Map<String, Long> monthlyCounts = new LinkedHashMap<>();
 
-        // Initialize all months with 0 counts
+        // Initialize all months
         String[] months = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
                 "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         for (String month : months) {
             monthlyCounts.put(month, 0L);
         }
 
-        // Count registrations per month
         DateTimeFormatter monthFormatter = DateTimeFormatter.ofPattern("MMM");
+
         for (User user : users) {
             try {
                 LocalDate registrationDate = user.getRegistrationDate().toLocalDate();
@@ -120,14 +152,13 @@ public class UserStorage {
         List<User> users = loadUsers();
         Map<String, Long> dailyCounts = new LinkedHashMap<>();
 
-        // Initialize days of week
         String[] days = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"};
         for (String day : days) {
             dailyCounts.put(day, 0L);
         }
 
-        // Count activities per day (using last login as example)
         DateTimeFormatter dayFormatter = DateTimeFormatter.ofPattern("EEE", Locale.ENGLISH);
+
         for (User user : users) {
             try {
                 if (user.getLastLoginDate() != null) {

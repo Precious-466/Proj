@@ -4,7 +4,7 @@
     "password": "yashraj123",
     "fullname": "Yashraj Shrestha",
     "role": "guide",
-    "registrationDate": "2025-07-29T09:06:28.228726",
+    "registrationDate": "2025-07-30T11:19:46.7118207",
     "active": true
   },
   {
@@ -12,16 +12,7 @@
     "password": "123456",
     "fullname": "Administrator",
     "role": "admin",
-    "registrationDate": "2025-07-29T09:06:28.2298106",
-    "lastLoginDate": "2025-07-29T12:52:23.5298879",
-    "active": true
-  },
-  {
-    "username": "Jashhh",
-    "password": "123456",
-    "fullname": "Jashraj shrestha",
-    "role": "tourist",
-    "registrationDate": "2025-07-29T09:06:28.2298106",
+    "registrationDate": "2025-07-30T11:19:46.7118207",
     "active": true
   },
   {
@@ -29,8 +20,15 @@
     "password": "sanjeev",
     "fullname": "Rishi kumar",
     "role": "tourist",
-    "registrationDate": "2025-07-29T09:06:28.2341703",
-    "lastLoginDate": "2025-07-29T09:06:39.2530732",
+    "registrationDate": "2025-07-30T11:19:46.7118207",
+    "active": true
+  },
+  {
+    "username": "Driver22",
+    "password": "123456",
+    "fullname": "Driver2",
+    "role": "Guide",
+    "registrationDate": "2025-07-30T11:19:46.7155459",
     "active": true
   }
 ]

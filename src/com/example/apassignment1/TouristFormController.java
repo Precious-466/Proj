@@ -38,8 +38,11 @@ public class TouristFormController {
 
         User newUser = new User(username, password, fullname);
         userList.add(newUser);
-        UserStorage.saveUsers(userList);
+
+        // Pass role when saving users
+        UserStorage.saveUsers(userList, "tourist");
     }
+
 
     private void showAlert(String title, String msg) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
