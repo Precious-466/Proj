@@ -1,7 +1,6 @@
 package com.example.apassignment1;
 
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.*;
@@ -11,6 +10,7 @@ import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.*;
 import javafx.scene.layout.*;
+
 import java.io.*;
 import java.time.*;
 import java.time.format.*;

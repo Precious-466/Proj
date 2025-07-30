@@ -4,11 +4,13 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
 
+<?import java.lang.String?>
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.apassignment1.RegisterController"
-            prefWidth="600" prefHeight="450"
+            prefWidth="600" prefHeight="550"
             style="-fx-background-color: linear-gradient(to bottom right, #e0eafc, #cfdef3);">
 
     <VBox alignment="CENTER" spacing="15.0"
@@ -30,7 +32,6 @@
             <Label text="Create Account"
                    style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
 
-            <!-- Add the missing fullname field here -->
             <TextField fx:id="fullnameField" promptText="Enter Full Name"
                        maxWidth="250"
                        style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: white;" />
@@ -69,6 +70,18 @@
                     </children>
                 </StackPane>
             </HBox>
+
+            <!-- Role ComboBox -->
+            <ComboBox fx:id="roleComboBox" promptText="Select Role" maxWidth="250"
+                      style="-fx-background-radius: 10; -fx-padding: 8;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Tourist"/>
+                        <String fx:value="Admin"/>
+                        <String fx:value="Guide"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
 
             <Button text="Register"
                     onAction="#handleRegister"

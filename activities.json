@@ -1318,5 +1318,95 @@
     "activityType": "LOGOUT",
     "description": "User logged out",
     "timestamp": "2025-07-29T09:17:03.5636755"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:30:25.9472845"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:30:26.043757"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:48:55.3556955"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:48:55.4770493"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:52:23.4778683"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGIN",
+    "description": "User logged in",
+    "timestamp": "2025-07-29T12:52:23.5866851"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T10:05:06.389466"
+  },
+  {
+    "username": "admin",
+    "activityType": "ADMIN_LOGIN",
+    "description": "Admin logged in",
+    "timestamp": "2025-07-30T10:05:06.4286964"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGOUT",
+    "description": "User logged out",
+    "timestamp": "2025-07-30T10:05:19.3222654"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGOUT",
+    "description": "User logged out",
+    "timestamp": "2025-07-30T10:05:19.3432301"
+  },
+  {
+    "username": "admin",
+    "activityType": "FAILED_LOGIN",
+    "description": "User type mismatch",
+    "timestamp": "2025-07-30T10:28:23.1226006"
+  },
+  {
+    "username": "admin",
+    "activityType": "USER_CREATED",
+    "description": "New user registered",
+    "timestamp": "2025-07-30T10:28:28.1286891"
+  },
+  {
+    "username": "admin",
+    "activityType": "ADMIN_LOGIN",
+    "description": "Admin logged in",
+    "timestamp": "2025-07-30T10:28:28.1568552"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGOUT",
+    "description": "User logged out",
+    "timestamp": "2025-07-30T10:28:40.4331144"
+  },
+  {
+    "username": "admin",
+    "activityType": "LOGOUT",
+    "description": "User logged out",
+    "timestamp": "2025-07-30T10:28:40.4554314"
   }
 ]

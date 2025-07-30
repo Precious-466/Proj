@@ -263,4 +263,27 @@ public class ManageGuidesController implements HelloApplication.RoleBasedControl
         alert.setContentText(message);
         alert.showAndWait();
     }
+    public void setNepaliText() {
+        addButton.setText("थप्नुहोस्");
+        updateButton.setText("अद्यावधिक");
+        deleteButton.setText("हटाउनुहोस्");
+        assignPackageButton.setText("प्याकेज दिनुहोस्");
+        removePackageButton.setText("प्याकेज हटाउनुहोस्");
+        saveGuideBtn.setText("गाइड सुरक्षित गर्नुहोस्");
+        usernameColumn.setText("प्रयोगकर्ता नाम");
+        fullnameColumn.setText("पूरा नाम");
+        packagesColumn.setText("प्याकेजहरू");
+    }
+
+    public void setEnglishText() {
+        addButton.setText("Add");
+        updateButton.setText("Update");
+        deleteButton.setText("Delete");
+        assignPackageButton.setText("Assign Package");
+        removePackageButton.setText("Remove Package");
+        saveGuideBtn.setText("Save Guide");
+        usernameColumn.setText("Username");
+        fullnameColumn.setText("Full Name");
+        packagesColumn.setText("Packages");
+    }
 }

@@ -3,16 +3,20 @@ package com.example.apassignment1;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+
+import java.util.Arrays;
 import java.util.List;
 
 public class RegisterController {
+
     @FXML private TextField usernameField;
     @FXML private PasswordField passwordField;
     @FXML private TextField passwordVisibleField;
     @FXML private PasswordField confirmPasswordField;
     @FXML private TextField confirmPasswordVisibleField;
-    @FXML private Button showPasswordBtn;
     @FXML private TextField fullnameField;
+    @FXML private Button showPasswordBtn;
+    @FXML private ComboBox<String> roleComboBox;
 
     private boolean passwordVisible = false;
 
@@ -22,16 +26,20 @@ public class RegisterController {
         passwordVisibleField.setManaged(false);
         confirmPasswordVisibleField.setVisible(false);
         confirmPasswordVisibleField.setManaged(false);
+
+        roleComboBox.getItems().addAll("tourist", "guide", "admin");
+        roleComboBox.setValue("tourist"); // default role
     }
 
     @FXML
     private void handleRegister() {
         String username = usernameField.getText().trim();
-        String pass = getPassword();
+        String password = getPassword();
         String confirmPass = getConfirmPassword();
         String fullname = fullnameField.getText().trim();
+        String role = roleComboBox.getValue();
 
-        if (!validateRegistration(username, pass, confirmPass, fullname)) {
+        if (!validateRegistration(username, password, confirmPass, fullname, role)) {
             return;
         }
 
@@ -41,20 +49,19 @@ public class RegisterController {
             return;
         }
 
-        User newUser = new User(username, pass, fullname);
+        User newUser = new User(username, password, fullname, role);
         users.add(newUser);
         UserStorage.saveUsers(users);
 
-        // Log the registration
-        ActivityLog.logActivity(username, "REGISTRATION", "New user registered");
+        ActivityLog.logActivity(username, "REGISTRATION", "User registered with role: " + role);
 
-        showAlert("Success", "Account created for " + username);
+        showAlert("Success", "Account created for " + username + " as " + role);
         clearFields();
         goToLogin();
     }
 
-    private boolean validateRegistration(String username, String pass, String confirmPass, String fullname) {
-        if (username.isEmpty() || pass.isEmpty() || confirmPass.isEmpty() || fullname.isEmpty()) {
+    private boolean validateRegistration(String username, String pass, String confirmPass, String fullname, String role) {
+        if (username.isEmpty() || pass.isEmpty() || confirmPass.isEmpty() || fullname.isEmpty() || role == null) {
             showAlert("Error", "All fields are required.");
             return false;
         }
@@ -71,6 +78,12 @@ public class RegisterController {
 
         if (!pass.equals(confirmPass)) {
             showAlert("Mismatch", "Passwords do not match.");
+            return false;
+        }
+
+        List<String> validRoles = Arrays.asList("admin", "guide", "tourist");
+        if (!validRoles.contains(role.toLowerCase())) {
+            showAlert("Error", "Invalid role selected.");
             return false;
         }
 
@@ -125,6 +138,7 @@ public class RegisterController {
         confirmPasswordField.clear();
         confirmPasswordVisibleField.clear();
         fullnameField.clear();
+        roleComboBox.setValue("tourist");
 
         if (passwordVisible) {
             toggleShowPassword();

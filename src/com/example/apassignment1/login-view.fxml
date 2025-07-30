@@ -4,7 +4,9 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.FXCollections?>
 
+<?import java.lang.String?>
 <AnchorPane xmlns="http://javafx.com/javafx/21"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.apassignment1.LoginController"
@@ -16,8 +18,17 @@
           AnchorPane.bottomAnchor="0.0"
           AnchorPane.leftAnchor="0.0"
           AnchorPane.rightAnchor="0.0">
+        <padding>
+            <Insets top="20" right="20" bottom="20" left="20"/>
+        </padding>
 
         <children>
+            <HBox alignment="TOP_RIGHT" spacing="10"
+                  AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+                <Button fx:id="languageButton" text="नेपाली"
+                        style="-fx-background-color: transparent; -fx-border-color: #3498db; -fx-text-fill: #3498db;"
+                        onAction="#toggleLanguage"/>
+            </HBox>
 
             <ImageView fitWidth="100" fitHeight="100" preserveRatio="true">
                 <image>
@@ -25,7 +36,7 @@
                 </image>
             </ImageView>
 
-            <Label text="Welcome Back"
+            <Label fx:id="welcomeLabel" text="Welcome Back"
                    style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" />
 
             <TextField fx:id="usernameField" promptText="Username"
@@ -36,14 +47,25 @@
                            maxWidth="250"
                            style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: white;" />
 
-            <Button text="Login"
+            <ComboBox fx:id="userTypeComboBox" promptText="Select Role"
+                      maxWidth="250"
+                      style="-fx-background-radius: 10; -fx-padding: 8; -fx-background-color: white;">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Tourist"/>
+                        <String fx:value="Admin"/>
+                        <String fx:value="Guide"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <Button fx:id="loginButton" text="Login"
                     onAction="#handleLogin"
                     style="-fx-background-color: #3498db; -fx-text-fill: white; -fx-font-size: 14px; -fx-background-radius: 8; -fx-padding: 10 30;" />
 
-            <Hyperlink text="Don't have an account? Register"
+            <Hyperlink fx:id="registerLink" text="Don't have an account? Register"
                        onAction="#goToRegister"
                        style="-fx-text-fill: #34495e; -fx-underline: true;" />
-
         </children>
     </VBox>
 </AnchorPane>
